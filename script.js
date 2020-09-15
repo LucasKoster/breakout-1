@@ -1,3 +1,6 @@
+var chance = 20;
+var s =false;
+
 class Bal {
    constructor(x, y, speedX, speedY) {
       this.x = x;
@@ -33,10 +36,26 @@ function draw() {
   background('blue');
   
   // stel vulkleur in
-  fill(255, 100, 255);
+  if(chance = 21){
+       s = true;
+   } else {s = false}
+
+  if(s = true){
+      fill(255,0,0);
+  }
+
+  if(s = false){
+      fill(255,255,255);
+  }
+  
+  
+
+   
 
    // teken een cirkel
    ellipse(bal.x, bal.y, bal.diameter, bal.diameter);
+
+   
 
    // update positie
    bal.x = bal.x + bal.speedX;
