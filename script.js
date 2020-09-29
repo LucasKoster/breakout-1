@@ -1,6 +1,3 @@
-var chance = 20;
-var s =false;
-
 class Bal {
    constructor(x, y, speedX, speedY) {
       this.x = x;
@@ -9,6 +6,26 @@ class Bal {
       this.speedY = speedY;
       this.diameter = 80;
    }
+   
+
+
+   show(){
+       fill(255,255,255);
+       ellipse(this.x,this.y,this.diameter,this.diameter);
+   }
+
+   update(){
+     this.x = this.x + this.speedX;
+    this.y = this.y + this.speedY;
+
+   if (this.x <= 0 || this.x >= 1280 ) {
+      this.speedX = this.speedX * -1
+   }
+
+   if (this.y <= 0 || this.y >= 720) {
+      this.speedY = this.speedY * -1;
+   }
+}
 }
 
 
@@ -33,39 +50,15 @@ function setup() {
  */
 function draw() {
   // Kleur de achtergrond blauw, zodat je het kunt zien
-  background('blue');
+  thiskground('blue');
   
-  // stel vulkleur in
-  if(chance = 21){
-       s = true;
-   } else {s = false}
-
-  if(s = true){
-      fill(255,0,0);
-  }
-
-  if(s = false){
-      fill(255,255,255);
-  }
-  
-  
-
-   
+  // stel vulkleur in  
 
    // teken een cirkel
-   ellipse(bal.x, bal.y, bal.diameter, bal.diameter);
-
+   bal.show();
+   bal.update();
    
 
    // update positie
-   bal.x = bal.x + bal.speedX;
-   bal.y = bal.y + bal.speedY;
-
-   if (bal.x <= 0 || bal.x >= 1280 ) {
-      bal.speedX = bal.speedX * -1
-   }
-
-   if (bal.y <= 0 || bal.y >= 720) {
-      bal.speedY = bal.speedY * -1;
-   }
+  
 }
