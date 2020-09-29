@@ -10,7 +10,7 @@ class Bal {
 
 
    show(){
-       fill(255,255,255);
+       fill(100,255,255);
        ellipse(this.x,this.y,this.diameter,this.diameter);
    }
 
@@ -25,11 +25,36 @@ class Bal {
    if (this.y <= 0 || this.y >= 720) {
       this.speedY = this.speedY * -1;
    }
+   if (this.x +40 >= blokje.y && this.x +40 <= blokje.y+50){
+       this.speedX = this.speedX * -1;
+   }
+
+   if (this.y +40 >= blokje.x && this.y +40 <= blokje.x+100 ){
+       this.speedY = this.speedY * -1;
+   }
+
+
+   }
 }
+
+class Blok {
+    constructor(x,y,width,height){
+        this.x = x;
+        this.y = y;
+        this.width= width;
+        this.height = height;
+    }
+
+    show() {
+        fill(255,255,255);
+        rect(this.x,this.y,this.width,this.height);
+        }
+    
 }
 
 
-var bal = new Bal(50, 50, 3, 6);
+var bal = new Bal(200, 640, 3, 6);
+var blokje = new Blok(40,80,100,50);
 
 /**
  * setup
@@ -50,13 +75,15 @@ function setup() {
  */
 function draw() {
   // Kleur de achtergrond blauw, zodat je het kunt zien
-  thiskground('blue');
+  background(0,0,0);
   
   // stel vulkleur in  
 
    // teken een cirkel
    bal.show();
    bal.update();
+
+   blokje.show();
    
 
    // update positie
